@@ -14,6 +14,26 @@ html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
 .small{font-size:12.5px}
 .err{color:var(--red);font-size:12.5px}
 a{color:var(--teal)}
+
+/* login */
+.login-wrap{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;
+  padding:24px;background:linear-gradient(160deg,var(--plum-soft) 0%,var(--bg) 48%,var(--teal-soft) 100%)}
+.login-card{width:100%;max-width:390px;background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;box-shadow:0 12px 34px rgba(16,24,40,.12),var(--shadow);
+  padding:30px 28px;display:flex;flex-direction:column;gap:12px;text-align:left}
+.login-card .brand{font-size:20px;justify-content:center;align-items:center;gap:10px}
+.login-card .brand .logo{font-size:24px}
+.login-card p{margin:0}
+.login-card > p.muted{text-align:center;font-size:12.5px;margin-top:-6px}
+.login-card label{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+.login-card input{font:inherit;color:var(--text);background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:11px 12px;width:100%;transition:border-color .15s,box-shadow .15s}
+.login-card button.primary{padding:11px 14px;margin-top:2px;border-radius:10px;transition:background .15s,box-shadow .15s}
+.login-card input:focus,.login-card input:focus-visible,.login-card button:focus-visible,
+button:focus-visible,.ghost:focus-visible,.filters select:focus-visible,.filters input:focus-visible{
+  outline:none;border-color:var(--plum);box-shadow:0 0 0 3px rgba(124,58,109,.18)}
+.login-card .err{background:var(--red-soft);border:1px solid #f2c9c9;border-radius:9px;padding:8px 10px}
+@media(max-width:420px){.login-wrap{padding:16px}.login-card{padding:24px 20px;border-radius:14px}}
 h3{margin:0;font-size:14px;font-weight:650;letter-spacing:.1px}
 
 /* topbar */

@@ -2,9 +2,9 @@
    Data is fetched from the protected API using a bearer token kept in localStorage. */
 (function () {
   "use strict";
-  var DEFAULT_API = "https://smmanager.cloud/hedgehog";
-  var API = localStorage.getItem("hh_api") ||
-            new URLSearchParams(location.search).get("api") || DEFAULT_API;
+  // Production: API endpoint is pinned. No localStorage or URL override (prevents
+  // sending the owner token to an attacker-controlled origin via a crafted link).
+  var API = "https://smmanager.cloud/hedgehog";
   var TOKEN_KEY = "hh_token";
   var AUTO_MS = 5 * 60 * 1000;
   var charts = {};
