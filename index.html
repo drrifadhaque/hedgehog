@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Hedgehog — SM Nabho Group</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<!-- Login -->
+<div id="login" class="login-wrap hidden">
+  <div class="login-card">
+    <div class="brand"><span class="logo">🦔</span> <b>Hedgehog</b></div>
+    <p class="muted">Owner dashboard — SM Nabho Group</p>
+    <label for="token">Access token</label>
+    <input id="token" type="password" placeholder="Enter owner access token" autocomplete="off"/>
+    <button id="loginBtn" class="primary">Enter</button>
+    <p id="loginErr" class="err hidden"></p>
+    <p class="tiny muted">The token is held in this browser only and sent as a bearer header to the
+      protected API. It is never stored in this page's source.</p>
+  </div>
+</div>
+
+<!-- App -->
+<div id="app" class="hidden">
+  <header class="topbar">
+    <div class="brand"><span class="logo">🦔</span> <b>Hedgehog</b> <span class="muted small">SM Nabho Group</span></div>
+    <div class="top-actions">
+      <span id="updated" class="muted small"></span>
+      <button id="refreshBtn" class="ghost" title="Refresh now">⟳ Refresh</button>
+      <button id="logoutBtn" class="ghost" title="Sign out">Sign out</button>
+    </div>
+  </header>
+
+  <nav class="filters">
+    <label>Business
+      <select id="businessSel">
+        <option value="all">All businesses</option>
+        <option value="nabhobazaar-nb1">NabhoBazaar · NB1 Morapora</option>
+        <option value="nabhobazaar-nb2">NabhoBazaar · NB2 Okrabari</option>
+        <option value="warehouse">Bowbazaar Warehouse</option>
+        <option value="shilpi">Shilpi Food &amp; Spices</option>
+        <option value="zubair">Zubair Sons &amp; Constructions</option>
+        <option value="nabhoacademy">NabhoAcademy</option>
+        <option value="nabhoaudit">NabhoAudit</option>
+      </select>
+    </label>
+    <label>From <input type="date" id="fromDate"/></label>
+    <label>To <input type="date" id="toDate"/></label>
+    <div class="presets">
+      <button data-range="7">7d</button>
+      <button data-range="30">30d</button>
+      <button data-range="90">90d</button>
+      <button data-range="ytd">YTD</button>
+      <button data-range="all" class="active">All</button>
+    </div>
+  </nav>
+
+  <div id="notConnected" class="banner hidden"></div>
+
+  <!-- Business cards -->
+  <section class="cards" id="bizCards"></section>
+
+  <!-- KPIs -->
+  <section class="kpis" id="kpis"></section>
+
+  <!-- Charts -->
+  <section class="grid2">
+    <div class="panel">
+      <div class="panel-head"><h3>Sales trend</h3><span class="muted tiny" id="seriesNote"></span></div>
+      <canvas id="salesChart" height="120"></canvas>
+      <div class="legend tiny muted">Solid = recorded (Supabase). Dashed = historical Vyapar export (not imported).</div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><h3>Payment mix (period)</h3></div>
+      <canvas id="mixChart" height="120"></canvas>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head"><h3>Monthly sales &amp; estimated profit</h3>
+      <span class="muted tiny">profit = 15% estimate</span></div>
+    <canvas id="monthlyChart" height="90"></canvas>
+  </section>
+
+  <!-- Reconciliation -->
+  <section class="panel" id="reconPanel"></section>
+
+  <!-- Detail panels -->
+  <section class="grid3" id="detailPanels"></section>
+
+  <!-- Audit -->
+  <section class="panel" id="auditPanel"></section>
+
+  <!-- Sources -->
+  <section class="panel" id="sourcePanel"></section>
+
+  <footer class="foot muted tiny" id="foot"></footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
